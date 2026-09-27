@@ -5,13 +5,18 @@ const generateTokenAndSetCookie = (userId, res) => {
     expiresIn: process.env.JWT_EXPIRY || "15d",
   });
 
-  const isProduction = process.env.NODE_ENV === "production";
+  const forwardedProto = res.req?.headers["x-forwarded-proto"]
+    ?.toString()
+    .split(",")[0]
+    .trim();
+  const useSecureCookie =
+    process.env.NODE_ENV === "production" || forwardedProto === "https";
 
   res.cookie("jwt", token, {
     maxAge: 15 * 24 * 60 * 60 * 1000,
     httpOnly: true,
-    sameSite: isProduction ? "none" : "lax",
-    secure: isProduction,
+    sameSite: useSecureCookie ? "none" : "lax",
+    secure: useSecureCookie,
     path: "/",
   });
 };
