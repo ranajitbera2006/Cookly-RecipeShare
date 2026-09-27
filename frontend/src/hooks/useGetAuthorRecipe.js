@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const useGetAuthorRecipe = () => {
   const [loading, setLoading] = useState(false);
   const [authRecipes, setAuthRecipes] = useState([]);
-  const { authUser } = useAuthContext();
+  const { authUser, setAuthUser } = useAuthContext();
   useEffect(() => {
     if (!authUser) return;
     const getAuthRecipes = async () => {
@@ -16,6 +16,11 @@ const useGetAuthorRecipe = () => {
           credentials: "include",
         });
         const data = await res.json();
+        if (res.status === 401 || data.error?.startsWith("Unauthorized!")) {
+          localStorage.removeItem("auth-user");
+          setAuthUser(null);
+          throw new Error("Your session expired. Please log in again.");
+        }
         if (data.error) {
           throw new Error(data.error);
         }
