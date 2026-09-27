@@ -33,11 +33,11 @@
 
   <!-- Dual-Tone CTA Buttons -->
   <p>
-    <a href="https://inkorbit-om9r.onrender.com" target="_blank">
+    <a href="https://cookly-sahi.onrender.com" target="_blank">
       <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-VISIT_COOKLY-0284c7?style=for-the-badge&logoColor=white" alt="Live Demo" />
     </a>
     &nbsp;&nbsp;
-    <a href="https://github.com/ranajitbera2006/InkOrbit-RecipeApp.git" target="_blank">
+    <a href="https://github.com/ranajitbera2006/Cookly-RecipeShare.git" target="_blank">
       <img src="https://img.shields.io/badge/📂_GITHUB-SOURCE_CODE-1f2937?style=for-the-badge&logo=github&logoColor=white" alt="Source Code" />
     </a>
   </p>
