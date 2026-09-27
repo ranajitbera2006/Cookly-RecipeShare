@@ -27,6 +27,7 @@ const useGetAllRecipes = (category = "All", search = "") => {
           `${API_URL}/api/blog/all-recipe${queryString}`,
           {
             method: "GET",
+            credentials:"include",
             signal: controller.signal,
           },
         );
