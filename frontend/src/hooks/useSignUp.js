@@ -53,3 +53,5 @@ const useSignUp = () => {
   };
   return { loading, signUp };
 };
+
+export default useSignUp;
